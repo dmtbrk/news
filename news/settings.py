@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import dj_database_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +22,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "hvmxratqzhn=#leq*9oq&(tbh&03f$+9j!#h_qp%pu$in!))vg"
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "hvmxratqzhn=#leq*9oq&(tbh&03f$+9j!#h_qp%pu$in!))vg"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = int(os.environ.get("DEBUG", 0))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [os.environ.get("HOST", "*")]
 
 
 # Application definition
@@ -76,14 +80,15 @@ WSGI_APPLICATION = "news.wsgi.application"
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ["POSTGRES_DB"],
-        "USER": os.environ["POSTGRES_USER"],
-        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
-        "HOST": os.environ["POSTGRES_HOST"],
-        "PORT": int(os.environ["POSTGRES_PORT"]),
-    }
+    "default": dj_database_url.config(conn_max_age=600)
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": os.environ["POSTGRES_DB"],
+    #     "USER": os.environ["POSTGRES_USER"],
+    #     "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+    #     "HOST": os.environ["POSTGRES_HOST"],
+    #     "PORT": int(os.environ["POSTGRES_PORT"]),
+    # }
 }
 
 
