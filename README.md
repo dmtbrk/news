@@ -28,6 +28,6 @@ docker-compose up
 
 Import Postman collection:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/270385be41e987fed7f0)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/270385be41e987fed7f0#?env%5BNEWS_PROD%5D=W3sia2V5IjoiQUREUiIsInZhbHVlIjoiaHR0cDovL2Rlc29sYXRlLW1lYWRvdy00ODQ5MS5oZXJva3VhcHAuY29tIiwiZW5hYmxlZCI6dHJ1ZX1d)
 
-Run server and test locally with default `ADDR` Postman variable or replace it with `https://desolate-meadow-48491.herokuapp.com` to test against (hopefully) running Heroku dyno.
+The Postman environment variable `ADDR` is set to `https://desolate-meadow-48491.herokuapp.com` to test against (hopefully) running Heroku dyno.
