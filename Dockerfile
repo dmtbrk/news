@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD gunicorn -b 0.0.0.0:${PORT} news.wsgi
+CMD gunicorn -b 0.0.0.0:${PORT} -D news.wsgi ; python votes_resetter.py

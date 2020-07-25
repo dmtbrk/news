@@ -1,6 +1,8 @@
 # News
 
-This is a HackerNews-like API server developed with Django REST Framework.
+This is a HackerNews-like API server developed with Django REST Framework. 
+
+Alongside with Django application, a simple worker resets all post votes count every day at a specified time.
 
 ## How to run
 
@@ -12,7 +14,13 @@ HOST=localhost
 PORT=8000
 
 DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+
+RESET_HOUR=0
+RESET_MINUTE=0
+RESET_SECOND=0
 ```
+
+`RESET_*` variables control the time (in 24h format) when all post votes are reset.  
 
 Install packages:
 ```
