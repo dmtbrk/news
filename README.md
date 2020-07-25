@@ -6,7 +6,7 @@ Alongside with Django application, a simple worker resets all post votes count e
 
 ## How to run
 
-`.env` file should be present in root directory:
+Similar to this `.env` file should be present in the root directory (or setup environment variables manually):
 ```
 DEBUG=1
 
