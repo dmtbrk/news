@@ -20,12 +20,7 @@ RESET_MINUTE=0
 RESET_SECOND=0
 ```
 
-`RESET_*` variables control the time (in 24h format) when all post votes are reset.  
-
-Install packages:
-```
-pip install -r requirements.txt
-```
+`RESET_*` variables control the time (in 24h format) when all post votes are reset.
 
 Run docker-compose:
 ```
